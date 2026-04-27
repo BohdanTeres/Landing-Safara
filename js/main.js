@@ -465,6 +465,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				var titleText = createEl('p', { className: 'availability__card-text', textContent: tour.title });
 				var statusText = createEl('p', { className: 'availability__card-status availability__card-status--' + tour.status, textContent: tour.statusText });
 				var pickButton = createEl('button', { type: 'button', className: 'availability__card-btn', textContent: 'Обрати дату' });
+				var actions = createEl('div', { className: 'availability__card-actions' });
 
 				pickButton.dataset.date = tour.date;
 				pickButton.addEventListener('click', function (event) {
@@ -473,8 +474,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 				card.appendChild(dateText);
 				card.appendChild(titleText);
-				card.appendChild(statusText);
-				card.appendChild(pickButton);
+				actions.appendChild(statusText);
+				actions.appendChild(pickButton);
+				card.appendChild(actions);
 				cardsNode.appendChild(card);
 			});
 		}

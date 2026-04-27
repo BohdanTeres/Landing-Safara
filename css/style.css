@@ -63,7 +63,7 @@ iframe{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0 49px;
+    padding: 16px 0 32px;
     flex-wrap: wrap;
 }
 .header__phone{
@@ -104,9 +104,11 @@ iframe{
 .header__title{
     font-family: 'PT Serif', serif;
     font-weight: 700;
-    font-size: 90px;
-    line-height: 130%;
+    font-size: 68px;
+    line-height: 115%;
     text-align: center;
+    max-width: 100%;
+    padding: 0 12px;
     margin-bottom: auto;
     animation: fade-up .8s ease .15s both;
 }
@@ -592,6 +594,7 @@ iframe{
     grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
     gap: 32px;
     align-items: start;
+    margin-top: 12px;
 }
 .availability__calendar,
 .availability__aside{
@@ -704,12 +707,12 @@ iframe{
 }
 .availability__cards{
     display: grid;
-    gap: 14px;
+    gap: 16px;
 }
 .availability__card{
     border: 1px solid #E5E5E5;
     border-radius: 16px;
-    padding: 16px;
+    padding: 18px;
     background: #fafafa;
     transition: transform .2s ease, box-shadow .2s ease;
 }
@@ -728,8 +731,14 @@ iframe{
 .availability__card-status{
     width: fit-content;
 }
+.availability__card-actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 .availability__card-btn{
-    margin-top: 12px;
+    margin-top: 0;
     border: 0;
     border-radius: 999px;
     padding: 10px 16px;
@@ -1068,6 +1077,9 @@ iframe{
     .availability__aside{
         padding: 20px;
     }
+    .availability__inner{
+        gap: 18px;
+    }
     .availability__month{
         font-size: 24px;
     }
@@ -1146,6 +1158,19 @@ iframe{
     .container{
         padding: 0 15px;
     }
+    .header__top{
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        column-gap: 12px;
+        row-gap: 14px;
+        position: relative;
+    }
+    .header__phone{
+        grid-row: 2;
+        grid-column: 1 / -1;
+        width: 100%;
+    }
     .direction__inner,
     .trevel_info-items,
     .weather__grid,
@@ -1167,7 +1192,12 @@ iframe{
         grid-column: span 1;
     }
     .menu{
-        position: relative;
+        grid-row: 1;
+        grid-column: 2;
+        position: static;
+        width: auto;
+        margin-top: 0;
+        justify-self: end;
     }
     .header__title{
         font-size: 42px;
@@ -1179,21 +1209,25 @@ iframe{
         height: 30px;
         border: none;
         padding: 0;
-        position: absolute;
+        position: static;
         background-color: transparent;
-        right: 10px;
-        top: 100px;
+        right: auto;
+        top: auto;
+        justify-self: end;
+        appearance: none;
     }
     .menu__btn span{
         display: block;
+        width: 100%;
         height: 2px;
         background-color: #fff;
+        position: relative;
     }
     .menu__btn span::after{
-        bottom: 0;
+        top: 10px;
     }
     .menu__btn span::before{
-        top: 0;
+        top: -10px;
     }
     .menu__btn span::after,
     .menu__btn span::before{
@@ -1204,6 +1238,14 @@ iframe{
         height: 2px;
         background-color: #fff;
     }
+    .menu__btn:focus{
+        outline: none;
+    }
+    .menu__btn:focus-visible{
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
     .menu__list{
         transform: translateY(-200%);
         display: block;
@@ -1212,6 +1254,7 @@ iframe{
         position: absolute;
         left: 0;
         right: 0;
+        top: 100%;
         z-index: 5;
         transition: all .3s;
     }
@@ -1224,9 +1267,11 @@ iframe{
         text-align: center;
     }
     .logo{
-        width: 100%;
-        margin-bottom: 30px;
-        text-align: center;
+        grid-row: 1;
+        grid-column: 1;
+        width: auto;
+        margin-bottom: 0;
+        text-align: left;
     }
     .header__phone-number{
         justify-content: center;
@@ -1283,6 +1328,12 @@ iframe{
     .availability__calendar,
     .availability__aside{
         padding: 18px;
+    }
+    .availability__cards{
+        gap: 12px;
+    }
+    .availability__card{
+        padding: 16px;
     }
     .availability__calendar-top{
         margin-bottom: 16px;
@@ -1350,6 +1401,20 @@ iframe{
     }
     .booking__title{
         margin-bottom: 26px;
+    }
+    .availability{
+        padding-bottom: 80px;
+    }
+    .availability__head{
+        margin-bottom: 24px;
+    }
+    .availability__calendar,
+    .availability__aside{
+        padding: 14px;
+        border-radius: 16px;
+    }
+    .availability__card{
+        border-radius: 14px;
     }
 }
 
